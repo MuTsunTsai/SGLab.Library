@@ -5,11 +5,13 @@
     <Authors>Mu-Tsun Tsai</Authors>
     <Company>SGLab</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Version>1.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RootNamespace>Microsoft.Extensions.DependencyInjection</RootNamespace>
     <Description>Provides InjectAttribute and other helpful tools that simplifies the syntax of .NET Core dependency injection.</Description>
+    <RepositoryUrl>https://github.com/MuTsunTsai/SGLab.Library</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
