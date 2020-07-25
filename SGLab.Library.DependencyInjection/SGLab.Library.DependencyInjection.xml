@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SGLab.Library.DependencyInjection</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Extensions.DependencyInjection.InjectAttribute">
+            <summary>
+            Similar to the InjectAttribute in Blazor, but works with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.Inject(System.IServiceProvider,System.Object)"/> method.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.OptionalInjectAttribute">
+            <summary>
+            Like <see cref="T:Microsoft.Extensions.DependencyInjection.InjectAttribute"/>, but does not strictly requires the corresponding service to be registered.
+            <para>If the corresponding service is not found, the value will simply be null.</para>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.SingletonServiceAttribute">
+            <summary>
+            To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute">
+            <summary>
+            To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute">
+            <summary>
+            To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension">
+            <summary>
+            Provides extension methods for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)">
+            <summary>
+            Search for all classes in the given assembly that has one of the <see cref="T:Microsoft.Extensions.DependencyInjection.SingletonServiceAttribute"/>,
+            <see cref="T:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute"/> or <see cref="T:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute"/>, and register them with
+            <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.CreateAndInject(System.IServiceProvider,System.Type,System.Object[])"/>
+            method as implementation factory.
+            </summary>
+            <param name="services">Service provider</param>
+            <param name="assm">Assembly to be searched</param>
+            <returns>The same service provider for method chaining</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension">
+            <summary>
+            Provides extension methods for <see cref="T:System.IServiceProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.Inject(System.IServiceProvider,System.Object)">
+            <summary>
+            Inject dependencies into the properties or fields with <see cref="T:Microsoft.Extensions.DependencyInjection.InjectAttribute"/> or <see cref="T:Microsoft.Extensions.DependencyInjection.OptionalInjectAttribute"/> of the target object.
+            </summary>
+            <param name="provider">Service provider</param>
+            <param name="target">The target object</param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.CreateAndInject``1(System.IServiceProvider,System.Object[])">
+            <summary>
+            Calls <see cref="M:Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance``1(System.IServiceProvider,System.Object[])"/> and <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.Inject(System.IServiceProvider,System.Object)"/> in one step.
+            </summary>
+            <typeparam name="T">Type of the instance to be created</typeparam>
+            <param name="provider">Service provider</param>
+            <param name="parameters">Additional parameters for the construction</param>
+            <returns>Created type-T object</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.CreateAndInject(System.IServiceProvider,System.Type,System.Object[])">
+            <summary>
+            Calls <see cref="M:Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(System.IServiceProvider,System.Type,System.Object[])"/> and <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.Inject(System.IServiceProvider,System.Object)"/> in one step.
+            </summary>
+            <param name="provider">Service provider</param>
+            <param name="type">Type of the instance to be created</param>
+            <param name="parameters">Additional parameters for the construction</param>
+            <returns>Created object</returns>
+        </member>
+    </members>
+</doc>
