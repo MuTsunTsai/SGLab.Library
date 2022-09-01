@@ -11,10 +11,10 @@ namespace Microsoft.Extensions.DependencyInjection {
 		/// <summary>
 		/// The type which the service implements. It would be the self-type if unspecified.
 		/// </summary>
-		public Type Type { get; set; }
+		public Type? Type { get; set; }
 
 		/// <inheritdoc />
-		public SingletonServiceAttribute(Type type = null) { Type = type; }
+		public SingletonServiceAttribute(Type? type = null) { Type = type; }
 	}
 
 	/// <summary>
@@ -26,10 +26,10 @@ namespace Microsoft.Extensions.DependencyInjection {
 		/// <summary>
 		/// The type which the service implements. It would be the self-type if unspecified.
 		/// </summary>
-		public Type Type { get; set; }
+		public Type? Type { get; set; }
 
 		/// <inheritdoc />
-		public ScopedServiceAttribute(Type type = null) { Type = type; }
+		public ScopedServiceAttribute(Type? type = null) { Type = type; }
 	}
 
 	/// <summary>
@@ -41,9 +41,9 @@ namespace Microsoft.Extensions.DependencyInjection {
 		/// <summary>
 		/// The type which the service implements. It would be the self-type if unspecified.
 		/// </summary>
-		public Type Type { get; set; }
+		public Type? Type { get; set; }
 
 		/// <inheritdoc />
-		public TransientServiceAttribute(Type type = null) { Type = type; }
+		public TransientServiceAttribute(Type? type = null) { Type = type; }
 	}
 }
