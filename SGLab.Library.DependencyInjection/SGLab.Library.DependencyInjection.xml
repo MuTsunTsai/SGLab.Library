@@ -20,15 +20,39 @@
             To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
             </summary>
         </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.SingletonServiceAttribute.Type">
+            <summary>
+            The type which the service implements. It would be the self-type if unspecified.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.SingletonServiceAttribute.#ctor(System.Type)">
+            <inheritdoc />
+        </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute">
             <summary>
             To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
             </summary>
         </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute.Type">
+            <summary>
+            The type which the service implements. It would be the self-type if unspecified.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute.#ctor(System.Type)">
+            <inheritdoc />
+        </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute">
             <summary>
             To be used with <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.AddServicesByAttribute(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)"/>.
             </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute.Type">
+            <summary>
+            The type which the service implements. It would be the self-type if unspecified.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute.#ctor(System.Type)">
+            <inheritdoc />
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension">
             <summary>
@@ -41,6 +65,11 @@
             <see cref="T:Microsoft.Extensions.DependencyInjection.ScopedServiceAttribute"/> or <see cref="T:Microsoft.Extensions.DependencyInjection.TransientServiceAttribute"/>, and register them with
             <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.CreateAndInject(System.IServiceProvider,System.Type,System.Object[])"/>
             method as implementation factory.
+            <para>Due to the fundamental restriction of the .NET Core DI, there is no way to apply
+            <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.CreateAndInject(System.IServiceProvider,System.Type,System.Object[])"/>
+            to open generic types; so for such classes you'll have to call
+            <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceProviderExtension.Inject(System.IServiceProvider,System.Object)" /> in the constructor
+            in order to use <see cref="T:Microsoft.Extensions.DependencyInjection.InjectAttribute"/>.</para>
             </summary>
             <param name="services">Service provider</param>
             <param name="assm">Assembly to be searched</param>

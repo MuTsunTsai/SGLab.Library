@@ -2,30 +2,48 @@
 
 namespace Microsoft.Extensions.DependencyInjection {
 
-    /// <summary>
-    /// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
-    /// </summary>
+	/// <summary>
+	/// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
+	/// </summary>
 	[AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public sealed class SingletonServiceAttribute : Attribute {
-        public Type Type { get; set; }
-        public SingletonServiceAttribute(Type type = null) { Type = type; }
-    }
+	public sealed class SingletonServiceAttribute : Attribute {
 
-    /// <summary>
-    /// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public sealed class ScopedServiceAttribute : Attribute {
-        public Type Type { get; set; }
-        public ScopedServiceAttribute(Type type = null) { Type = type; }
-    }
+		/// <summary>
+		/// The type which the service implements. It would be the self-type if unspecified.
+		/// </summary>
+		public Type Type { get; set; }
 
-    /// <summary>
-    /// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public sealed class TransientServiceAttribute : Attribute {
-        public Type Type { get; set; }
-        public TransientServiceAttribute(Type type = null) { Type = type; }
-    }
+		/// <inheritdoc />
+		public SingletonServiceAttribute(Type type = null) { Type = type; }
+	}
+
+	/// <summary>
+	/// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
+	/// </summary>
+	[AttributeUsage(AttributeTargets.Class, Inherited = false)]
+	public sealed class ScopedServiceAttribute : Attribute {
+
+		/// <summary>
+		/// The type which the service implements. It would be the self-type if unspecified.
+		/// </summary>
+		public Type Type { get; set; }
+
+		/// <inheritdoc />
+		public ScopedServiceAttribute(Type type = null) { Type = type; }
+	}
+
+	/// <summary>
+	/// To be used with <see cref="ServiceCollectionExtension.AddServicesByAttribute(IServiceCollection, System.Reflection.Assembly)"/>.
+	/// </summary>
+	[AttributeUsage(AttributeTargets.Class, Inherited = false)]
+	public sealed class TransientServiceAttribute : Attribute {
+
+		/// <summary>
+		/// The type which the service implements. It would be the self-type if unspecified.
+		/// </summary>
+		public Type Type { get; set; }
+
+		/// <inheritdoc />
+		public TransientServiceAttribute(Type type = null) { Type = type; }
+	}
 }

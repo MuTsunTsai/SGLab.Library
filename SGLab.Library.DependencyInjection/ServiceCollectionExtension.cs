@@ -13,6 +13,11 @@ namespace Microsoft.Extensions.DependencyInjection {
         /// <see cref="ScopedServiceAttribute"/> or <see cref="TransientServiceAttribute"/>, and register them with
         /// <see cref="ServiceProviderExtension.CreateAndInject(System.IServiceProvider, System.Type, object[])"/>
         /// method as implementation factory.
+		/// <para>Due to the fundamental restriction of the .NET Core DI, there is no way to apply
+		/// <see cref="ServiceProviderExtension.CreateAndInject(System.IServiceProvider, System.Type, object[])"/>
+		/// to open generic types; so for such classes you'll have to call
+		/// <see cref="ServiceProviderExtension.Inject(System.IServiceProvider, object)" /> in the constructor
+		/// in order to use <see cref="InjectAttribute"/>.</para>
         /// </summary>
         /// <param name="services">Service provider</param>
         /// <param name="assm">Assembly to be searched</param>
