@@ -46,13 +46,13 @@ namespace Microsoft.Extensions.DependencyInjection {
 
 						att = attributes.FirstOrDefault(a => a is ScopedServiceAttribute);
 						if(att != null) {
-							services.AddSingleton(group.Key, p => p.CreateAndInject(c));
+							services.AddScoped(group.Key, p => p.CreateAndInject(c));
 							continue;
 						}
 
 						att = attributes.FirstOrDefault(a => a is TransientServiceAttribute);
 						if(att != null) {
-							services.AddSingleton(group.Key, p => p.CreateAndInject(c));
+							services.AddTransient(group.Key, p => p.CreateAndInject(c));
 						}
 					}
 				});
